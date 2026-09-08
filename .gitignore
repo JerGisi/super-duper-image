@@ -21,3 +21,9 @@ rad.json
 *.flf
 #Test results file
 TestResults.xml
+
+# Node / Vite
+node_modules/
+dist/
+.env
+.env.local

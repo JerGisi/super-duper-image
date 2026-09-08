@@ -1,0 +1,77 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Manrope:wght@400;500;600;700;800&display=swap');
+
+:root {
+  color: #f3f1ed;
+  background: #090a0f;
+  font-family: 'Manrope', sans-serif;
+  font-synthesis: none;
+  --muted: #898b95;
+  --line: rgba(255, 255, 255, .1);
+  --lime: #d6f36a;
+}
+* { box-sizing: border-box; }
+body { margin: 0; min-width: 320px; background: radial-gradient(circle at 75% 0%, #18202b 0, #090a0f 34rem); }
+button, textarea { font: inherit; }
+button, a { -webkit-tap-highlight-color: transparent; }
+.app-shell { min-height: 100vh; max-width: 1440px; margin: auto; padding: 0 6vw; overflow: hidden; }
+.topbar { height: 78px; display: flex; align-items: center; justify-content: space-between; border-bottom: 1px solid var(--line); }
+.brand { display: flex; align-items: center; gap: 11px; color: #fff; font-size: 13px; font-weight: 800; letter-spacing: .22em; text-decoration: none; }
+.brand-mark { width: 29px; height: 29px; display: grid; place-items: center; color: #090a0f; background: var(--lime); border-radius: 8px; transform: rotate(-10deg); }
+.spark-icon { font-size: 18px; line-height: 1; }
+.topbar-meta { display: flex; align-items: center; gap: 9px; color: var(--muted); font: 11px 'DM Mono', monospace; text-transform: uppercase; letter-spacing: .08em; }
+.status-dot { width: 6px; height: 6px; background: var(--lime); border-radius: 50%; box-shadow: 0 0 13px var(--lime); }
+.clear-button { margin-left: 27px; padding: 8px 0; color: var(--muted); border: 0; background: none; font-size: 11px; cursor: pointer; }
+.clear-button:hover:not(:disabled) { color: #fff; }
+.clear-button:disabled { opacity: .35; cursor: default; }
+main { max-width: 1040px; margin: auto; }
+.hero { padding: clamp(80px, 11vw, 145px) 0 62px; }
+.eyebrow { color: var(--lime); font: 11px 'DM Mono', monospace; letter-spacing: .14em; }
+.hero .eyebrow { display: flex; align-items: center; gap: 9px; margin: 0 0 23px; }
+.hero h1 { margin: 0; font-size: clamp(48px, 7vw, 92px); line-height: .98; letter-spacing: -.075em; font-weight: 700; }
+.hero h1 em { color: var(--lime); font-family: Georgia, serif; font-weight: 400; letter-spacing: -.08em; }
+.hero-copy { max-width: 420px; margin: 31px 0 0; color: var(--muted); font-size: 15px; line-height: 1.75; }
+.composer { padding: 23px 25px 18px; border: 1px solid #30353e; border-radius: 15px; background: rgba(20, 23, 30, .75); box-shadow: 0 24px 70px rgba(0,0,0,.18); }
+.composer label { display: block; margin-bottom: 12px; color: #a9abb4; font: 11px 'DM Mono', monospace; letter-spacing: .08em; text-transform: uppercase; }
+.composer textarea { display: block; width: 100%; resize: vertical; min-height: 76px; color: #fff; border: 0; outline: 0; background: transparent; font-size: 19px; line-height: 1.5; }
+.composer textarea::placeholder { color: #5f626b; }
+.composer-footer { display: flex; align-items: center; justify-content: space-between; margin-top: 13px; }
+.character-count { color: #5f626b; font: 10px 'DM Mono', monospace; }
+.generate-button { display: inline-flex; align-items: center; gap: 10px; padding: 13px 18px; color: #11140b; border: 0; border-radius: 8px; background: var(--lime); font-size: 12px; font-weight: 800; cursor: pointer; transition: transform .2s, opacity .2s; }
+.generate-button:hover:not(:disabled) { transform: translateY(-2px); }
+.generate-button:disabled { cursor: default; opacity: .45; }
+.spinner { width: 13px; height: 13px; border: 2px solid rgba(0,0,0,.25); border-top-color: #11140b; border-radius: 50%; animation: spin .7s linear infinite; }
+@keyframes spin { to { transform: rotate(360deg); } }
+.error-message { margin: 14px 3px 0; color: #ff9696; font-size: 12px; }
+.prompt-ideas { display: flex; flex-wrap: wrap; align-items: center; gap: 9px; margin-top: 19px; color: #656872; font: 10px 'DM Mono', monospace; }
+.prompt-ideas button { padding: 8px 11px; color: #9699a2; border: 1px solid var(--line); border-radius: 100px; background: transparent; font-size: 10px; cursor: pointer; }
+.prompt-ideas button:hover:not(:disabled) { color: var(--lime); border-color: rgba(214,243,106,.4); }
+.gallery-section { padding: 110px 0 80px; }
+.section-heading { display: flex; align-items: end; justify-content: space-between; margin-bottom: 27px; }
+.section-heading .eyebrow { margin: 0 0 10px; color: #737680; }
+.section-heading h2 { margin: 0; font-size: 24px; letter-spacing: -.04em; }
+.image-count { color: #737680; font: 10px 'DM Mono', monospace; }
+.empty-state { display: grid; justify-items: center; padding: 75px 20px; border: 1px dashed #2d323b; border-radius: 13px; text-align: center; }
+.empty-orbit { display: grid; place-items: center; width: 49px; height: 49px; margin-bottom: 22px; color: var(--lime); border: 1px solid rgba(214,243,106,.32); border-radius: 50%; box-shadow: 0 0 30px rgba(214,243,106,.07); }
+.empty-state p { margin: 0 0 8px; color: #bfc0c6; font-size: 14px; }
+.empty-state span { color: #666a74; font-size: 12px; }
+.gallery-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; }
+.image-card { min-width: 0; }
+.image-frame { position: relative; overflow: hidden; aspect-ratio: 1; border-radius: 12px; background: #151820; }
+.image-frame img { width: 100%; height: 100%; display: block; object-fit: cover; }
+.download-button { position: absolute; right: 12px; bottom: 12px; display: grid; place-items: center; width: 34px; height: 34px; color: #151820; border-radius: 7px; background: var(--lime); text-decoration: none; font-size: 20px; opacity: 0; transition: opacity .2s; }
+.image-frame:hover .download-button, .download-button:focus { opacity: 1; }
+.image-card p { margin: 12px 3px 0; overflow: hidden; color: #93959d; font-size: 12px; line-height: 1.5; text-overflow: ellipsis; white-space: nowrap; }
+footer { display: flex; justify-content: space-between; padding: 23px 0 30px; color: #565962; border-top: 1px solid var(--line); font: 10px 'DM Mono', monospace; text-transform: uppercase; letter-spacing: .08em; }
+@media (max-width: 700px) {
+  .app-shell { padding: 0 20px; }
+  .topbar-meta { font-size: 9px; }
+  .clear-button { margin-left: 12px; }
+  .hero { padding-top: 72px; }
+  .hero h1 { font-size: 54px; }
+  .composer { padding: 18px; }
+  .prompt-ideas { align-items: flex-start; }
+  .prompt-ideas > span { width: 100%; }
+  .gallery-section { padding-top: 78px; }
+  .gallery-grid { grid-template-columns: 1fr 1fr; gap: 12px; }
+  .gallery-grid .image-card:first-child { grid-column: span 2; }
+}
